@@ -4,10 +4,15 @@ public final class BitsUtil {
     private BitsUtil() {} 
 
    
-    public static int bitsNecessaires(int v) {
-        if (v < 0) {
-            throw new IllegalArgumentException("bitsNecessaires attend un entier >= 0");
+    public static int bitsNecessaires(int valeur) {
+        return 32 - Integer.numberOfLeadingZeros(valeur);
+    }
+    
+    public static void afficherBits(int[] tableau) {
+        for (int i = 0; i < tableau.length; i++) {
+            String bits = String.format("%32s", Integer.toBinaryString(tableau[i]))
+                               .replace(' ', '0');
+            System.out.println("compresse[" + i + "] = " + bits);
         }
-        return v == 0 ? 1 : 32 - Integer.numberOfLeadingZeros(v);
     }
 }
