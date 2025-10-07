@@ -6,7 +6,12 @@ public abstract class EmpaquetAbstrait implements EmpaquetBits {
     protected final boolean signe;   
     protected int n;                 
     protected int largeur;           
-    protected int[] compresse;       
+    protected int[] compresse;    
+    
+ // ⏱️ Variables globales de mesure
+    public long tempsCompresser = 0;
+    public long tempsDecompresser = 0;
+    public long tempsObtenir = 0;
 
     public EmpaquetAbstrait(boolean signe) {
         this.signe = signe;
@@ -62,12 +67,19 @@ public abstract class EmpaquetAbstrait implements EmpaquetBits {
         for (int i = 0; i < n; i++) {
             valeursEncodees[i] = encoderSigne(source[i]);
         }
+        
+        long debut = System.nanoTime();
         compresserInterne(valeursEncodees, largeur);
+        long fin = System.nanoTime();
+        this.tempsCompresser = fin - debut;
     }
-
     @Override
     public void decompresser(int[] destination) {
+        long debut = System.nanoTime();
         decompresserInterne(destination, largeur);
+        long fin = System.nanoTime();
+        this.tempsDecompresser = fin - debut;
+
         for (int i = 0; i < n; i++) {
             destination[i] = decoderSigne(destination[i]);
         }
@@ -75,7 +87,10 @@ public abstract class EmpaquetAbstrait implements EmpaquetBits {
 
     @Override
     public int obtenir(int i) {
+        long debut = System.nanoTime();
         int u = lireA(i, largeur);
+        long fin = System.nanoTime();
+        this.tempsObtenir = fin - debut;
         return decoderSigne(u);
     }
 }
