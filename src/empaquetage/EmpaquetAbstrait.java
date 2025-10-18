@@ -1,3 +1,4 @@
+package empaquetage;
 import util.BitsUtil;
 import util.CodecSigne;
 
@@ -12,6 +13,7 @@ public abstract class EmpaquetAbstrait implements EmpaquetBits {
     public long tempsCompresser = 0;
     public long tempsDecompresser = 0;
     public long tempsObtenir = 0;
+    protected long bitsUtilises; 
 
     public EmpaquetAbstrait(boolean signe) {
         this.signe = signe;

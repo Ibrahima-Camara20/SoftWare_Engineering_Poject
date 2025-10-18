@@ -1,3 +1,4 @@
+package empaquetage;
 public interface EmpaquetBits {
     void compresser(int[] source);
     void decompresser(int[] destination);

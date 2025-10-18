@@ -1,3 +1,4 @@
+package empaquetage;
 public class EmpaquetCroise extends EmpaquetAbstrait {
 
     public EmpaquetCroise(boolean signe) { super(signe); }
@@ -9,6 +10,7 @@ public class EmpaquetCroise extends EmpaquetAbstrait {
         int nbInts = (totalBits + 31) / 32;
         if (nbInts == 0) nbInts = 1;     
         compresse = new int[nbInts];
+        
 
         int bitPos = 0;
         for (int i = 0; i < n; i++) {

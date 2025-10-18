@@ -1,5 +1,4 @@
 package util;
-
 public class CodecSigne {
     public static int encoderZigZag(int v) {
         return (v << 1) ^ (v >> 31);

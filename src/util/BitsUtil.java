@@ -1,5 +1,4 @@
 package util;
-
 public final class BitsUtil {
     private BitsUtil() {} 
 

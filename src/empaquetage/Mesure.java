@@ -1,3 +1,4 @@
+package empaquetage;
 import java.util.Arrays;
 
 public final class Mesure {
@@ -48,7 +49,7 @@ public final class Mesure {
         System.out.printf("Temps d’obtention               : %.6f ms%n", 
             ((EmpaquetAbstrait)empaqueteur).tempsObtenir / 1_000_000.0);
         
-     // 🔹 Calcul du seuil de latence
+     
         calculerLatenceSeuil((EmpaquetAbstrait)empaqueteur, donnees.length);
     }
 }

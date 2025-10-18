@@ -1,3 +1,4 @@
+package empaquetage;
 public final class FabriqueEmpaquet {
     private FabriqueEmpaquet() {} 
 

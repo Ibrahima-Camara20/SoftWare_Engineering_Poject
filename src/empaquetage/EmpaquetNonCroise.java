@@ -1,3 +1,4 @@
+package empaquetage;
 public class EmpaquetNonCroise extends EmpaquetAbstrait {
 
     public EmpaquetNonCroise(boolean signe) { super(signe); }
@@ -8,6 +9,7 @@ public class EmpaquetNonCroise extends EmpaquetAbstrait {
         if (approxBitsParInt == 0) approxBitsParInt = 32;
         int nbInts = Math.max(1, (n * largeur + approxBitsParInt - 1) / approxBitsParInt);
         compresse = new int[nbInts];
+        
 
         int bitPos = 0; 
         int curInt = 0;
@@ -44,7 +46,7 @@ public class EmpaquetNonCroise extends EmpaquetAbstrait {
 
         int mask = (largeur == 32) ? -1 : ((1 << largeur) - 1);
         int enc  = (compresse[curInt] >>> offset) & mask;
-        return enc; // ❗️valeur encodée; le décodage se fait dans EmpaquetAbstrait
+        return enc; 
     }
 
     @Override
@@ -53,7 +55,7 @@ public class EmpaquetNonCroise extends EmpaquetAbstrait {
         for (int i = 0; i < n; i++) {
             if (offset + largeur > 32) { curInt++; offset = 0; }
             int mask = (largeur == 32) ? -1 : ((1 << largeur) - 1);
-            destination[i] = (compresse[curInt] >>> offset) & mask; // ❗️encodé
+            destination[i] = (compresse[curInt] >>> offset) & mask; 
             offset += largeur;
             if (offset == 32) { curInt++; offset = 0; }
         }
