@@ -18,6 +18,6 @@ Avant d’exécuter le projet, assurez-vous d’avoir :
 1. Placez-vous dans le dossier du projet :
    ```bash
    cd SoftWare_Engineering_Poject
-	-Tapez cette commande pour complier : javac -d bin src\empaquetage\*.java src\util\*.java src\Principal.java
+	-Tapez cette commande pour complier : javac -d bin src/empaquetage/*.java src/util/*.java src/Principal.java
         -En fin taper cette commande pour exécuter : java -cp bin Principal
 
